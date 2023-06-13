@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Project/Maven2/JavaApp/src/main/java/${packagePath}/${mainClassName}.java to edit this template
  */
 
-package com.mycompany.fuemayordeedad;
+package com.mycompany.cifras;
 
 import java.util.Scanner;
 
@@ -11,28 +11,28 @@ import java.util.Scanner;
  *
  * @author migue
  */
-public class Fuemayordeedad {
+public class Cifras {
 
     public static void main(String[] args) {
-         //Delaracion de variables
-        int edad;
-        Scanner norma =new Scanner(System.in);
-        //entrada de datos
-        System.out.println("Edad a calcular");
-        edad=norma.nextInt();
-        System.out.println(May (edad));
-        //Salida
-    }
-    public static String May (int edad)
-    {
-        //Salida de datos
-        if(edad>=18){
-        return "Mayor de edad";
-        }else if(edad<18){
-         return "Menor de edad";
+         Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese un número entero: ");
+        int numero = scanner.nextInt();
 
+        int cifras = contarCifras(numero);
+
+        System.out.println("El número " + numero + " tiene " + cifras + " cifras.");
+    }
+
+    public static int contarCifras(int numero) {
+        int cifras = 0;
+        if (numero == 0) {
+            cifras = 1;
+        } else {
+            while (numero != 0) {
+                numero = numero / 10;
+                cifras++;
+            }
         }
-        
-        return "default";
+        return cifras;
     }
 }
